@@ -62,7 +62,7 @@ print("Current MAC =" + str(current_mac))
 #Check whether the MAC address that we want to change is already set
 if current_mac == args.new_mac:
    #Print a message that tell the user that the new MAC address in the argument is alredy set
-   print("[-] The MAC address is currently " + args.new_mac + " use another MAC address")
+   print("[-] The MAC address is the same as the one you entered, use another MAC address")
 else:
     #We called the function and add the output of the get argument function
     change_mac(args.interface, args.new_mac)
