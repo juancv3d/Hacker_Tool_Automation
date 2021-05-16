@@ -7,7 +7,7 @@ import argparse
 #re lets us search for patterns in a text
 import re
 
-#A function that create argumentas and can be use by the user 
+#A function that creates arguments, can be use by the user 
 #and specify the interface and the MAC address that the program needs to work correctly
 def get_argument():
     #We create an object of argparse
@@ -40,8 +40,6 @@ def change_mac(interface, new_mac):
     #Then we start again the interface
     subprocess.run(["ifconfig",interface,"up"])
     
-
-
 #This function check and return the current MAC address of the interface
 def get_current_mac(interface):
     #We stored the ouput of the ifconfig command to check whetther or not the MAC address was succesfully changed
