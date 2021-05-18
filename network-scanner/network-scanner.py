@@ -34,19 +34,21 @@ def scan(ip):
 
     #List of clients
     client_list = []
-    #check is there is content in the list
+   
+
+     #print to the terminal the response of the answered packets iterating in the list of answers
+    for element in ans_list:
+        #Dictionary that stored the information of the clients
+        client_dict = {"ip": element[1].psrc, "mac": element[1].hwsrc}
+        #We append the values of the dictionary to the list
+        client_list.append(client_dict)
+     #check is there is content in the list
     if not client_list:
         #print a message that there was not any response in the IP range
         print("[-] There are no clients in the supplied IP range, please provide another range")
         #exit the code
         exit()
-    else:   
-        #print to the terminal the response of the answered packets iterating in the list of answers
-        for element in ans_list:
-            #Dictionary that stored the information of the clients
-            client_dict = {"ip": element[1].psrc, "mac": element[1].hwsrc}
-            #We append the values of the dictionary to the list
-            client_list.append(client_dict)
+    else:
         #Return the client list with the IP and the MAC addresses of the clients
         return client_list
 
