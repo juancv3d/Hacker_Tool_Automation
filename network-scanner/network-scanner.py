@@ -31,12 +31,9 @@ def scan(ip):
     arp_request_broadcast = broadcast/arp_request
     #stored the reponse of the ARP request, ans store the packets answered and unans store the packets unanswered
     ans_list = scapy.srp(arp_request_broadcast, timeout = 1, verbose = False)[0]
-
     #List of clients
     client_list = []
-   
-
-     #print to the terminal the response of the answered packets iterating in the list of answers
+    #print to the terminal the response of the answered packets iterating in the list of answers
     for element in ans_list:
         #Dictionary that stored the information of the clients
         client_dict = {"ip": element[1].psrc, "mac": element[1].hwsrc}
