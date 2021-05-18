@@ -5,8 +5,7 @@ import scapy.all as scapy
 #argparse lets us use arguments as input in our code
 import argparse
 
-#A function that creates arguments, can be use by the user 
-#and specify the interface and the MAC address that the program needs to work correctly
+#A function that creates arguments, can be use by the user to input an IP range
 def get_argument():
     #We create an object of argparse
     parser = argparse.ArgumentParser()
@@ -21,8 +20,6 @@ def get_argument():
     else:
         #If everything is correct we return the arguments
         return args
-
-
 
 #Function that allow us to scan the ip address provided for MAC adresses
 def scan(ip):
