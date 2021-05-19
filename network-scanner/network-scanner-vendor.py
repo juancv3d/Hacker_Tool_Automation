@@ -5,6 +5,7 @@ import scapy.all as scapy
 #argparse lets us use arguments as input in our code
 import argparse
 
+from mac_vendor_lookup import MacLookup
 
 #A function that creates arguments, can be use by the user to input an IP range
 def get_argument():
@@ -50,14 +51,24 @@ def scan(ip):
         #Return the client list with the IP and the MAC addresses of the clients
         return client_list
 
+#Function that search for MAC address vendor
+def get_mac_vendor(mac):
+    try:
+        #create an instance of an object to search for the vendor
+        mac_vendor = MacLookup().lookup(mac)
+        #return the vendor mac address
+    except:
+        mac_vendor = "Unknown Vendor"
+    return mac_vendor
+
 #Function that print the results in the scan function   
 def print_result(result_list):
     #print a table of IP/MAC response content
-    print('IP\t\t\tMAC Address\n-----------------------------------------')
+    print('IP\t\t\tMAC Address\t\tVendor/Manufacturer\n-------------------------------------------------------------------')
     #We now iterate through the list to print the results
     for client in result_list:
         #print result of the client
-        print(client["ip"] + "\t\t" + client["mac"])
+        print(client["ip"] + "\t\t" + client["mac"] + "\t" + get_mac_vendor(client["mac"]))
 
 #We store the argument provided by the user      
 args = get_argument()
