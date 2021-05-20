@@ -2,7 +2,7 @@
 This repo is for the tools created for my hacking path, contains previously used and proven python codes.
 
 # mac-changer
-This code lets you change the MAC address of a network device, using a range of IP addresses and the new MAC address that you want it as an input. you can use --help for more information about how to use the code.
+This code lets you change the MAC address of a network device, using a range of IP addresses and the new MAC address that you want it as an input. You can use --help for more information about how to use the code.
 
 ![Captura de pantalla 2021-05-19 190728](https://user-images.githubusercontent.com/70031233/118899986-8db61f80-b8d5-11eb-9a7c-aa7ce794fdfd.png)
 
