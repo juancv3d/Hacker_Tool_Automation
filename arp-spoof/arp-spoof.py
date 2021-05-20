@@ -27,6 +27,7 @@ def get_argument():
     else:
         #If everything is correct we return the arguments
         return args
+    
 #Function that return the MAC address of an IP 
 def get_mac(ip):
     #this send an ARP request to the ip range provided
