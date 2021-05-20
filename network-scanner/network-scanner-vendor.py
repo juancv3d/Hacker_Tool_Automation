@@ -4,7 +4,7 @@
 import scapy.all as scapy
 #argparse lets us use arguments as input in our code
 import argparse
-
+#This allow to search for the vendor of an specific MAC address
 from mac_vendor_lookup import MacLookup
 
 #A function that creates arguments, can be use by the user to input an IP range
