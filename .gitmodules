@@ -1,0 +1,3 @@
+[submodule "spoofer/spoofer/python-netfilterqueue"]
+	path = spoofer/spoofer/python-netfilterqueue
+	url = https://github.com/kti/python-netfilterqueue.git
