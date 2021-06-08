@@ -5,6 +5,7 @@ import netfilterqueue
 
 ack_list = []
 
+# Function that allow to intercept files that are going to be downloaded and then replace it
 def process_packet(packet):
     scapy_packet = scapy.IP(packet.get_payload())
     if scapy_packet.haslayer(scapy.Raw):
