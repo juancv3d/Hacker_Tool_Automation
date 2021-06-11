@@ -28,7 +28,7 @@ def process_packet(packet):
         # Check if the packet has HTTP request
         if scapy_packet[scapy.TCP].dport == 80:
             # Check is there is .exe request in the Raw layer section load
-            if '.exe' in scapy_packet[scapy.Raw].load:
+            if '.exe' in scapy_packet[scapy.Raw].load.decode():
                 # Print a message that there is an .exe request
                 print('[+] exe Request')
                 # Append to the list the ack number
