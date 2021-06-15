@@ -25,6 +25,21 @@ def get_argument():
         # If everything is correct we return the arguments
         return args
 
+# Function that return the MAC address of an IP
+
+
+def get_mac(ip):
+    # this send an ARP request to the ip range provided
+    arp_request = scapy.ARP(pdst=ip)
+    # stored in broadcast, this make sure to send the broadcast MAC adress
+    broadcast = scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
+    # make a packet of a request combining both ARP request and Broadcast
+    arp_request_broadcast = broadcast/arp_request
+    # stored the reponse of the ARP request, ans store the packets answered and unans store the packets unanswered
+    ans_list = scapy.srp(arp_request_broadcast, timeout=1, verbose=False)[0]
+    # return the MAC address of the IP specified
+    return ans_list[0][1].hwsrc
+
 # functions that capture packets or data of an interface
 
 
@@ -37,7 +52,15 @@ def sniff(interface):
 def process_sniffed_packet(packet):
     # Check if this packet has a layer
     if packet.haslayer(scapy.ARP) and packet[scapy.ARP].op == 2:
-        print(packet.show)
+        try:
+            real_mac = get_mac(packet[scapy.ARP].psrc)
+            response_mac = packet[scapy.ARP].hwsrc
+            # Check if the real mac is the same as the response mac
+            if real_mac != response_mac:
+                print("[+] You are under attack!")
+                # print(packet.show)
+        except IndexError:
+            pass
 
 
 # sotred the values of the get argument function
