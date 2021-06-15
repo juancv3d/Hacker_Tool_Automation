@@ -37,6 +37,7 @@ def process_packet(packet):
                 print('[+] Request...')
                 # We search for a pattern that contain the encoding information in the request and replace it with nothing, allowing us to read the HTTP responses
                 load = re.sub("Accept-Encoding:.*?\\r\\n", "", load) 
+                load = load.replace("HTTP/1.1","HTTP/1.0")
 
             # Check if the TCP layer has 80 in the sport section
             elif scapy_packet[scapy.TCP].sport == 80:
