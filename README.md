@@ -1,18 +1,36 @@
-# Hacker-Tool-Automation
+# Hacker-Tool-Automation 
+![py](https://img.shields.io/badge/python-3.5%7C3.6%7C3.7-blue)
+
 This repo is for the tools created for my hacking path, contains previously used and proven python codes.
 
-# mac-changer
-This code lets you change the MAC address of a network device, using a range of IP addresses and the new MAC address that you want it as an input. You can use --help for more information about how to use the code.
+### Install: 
+```bash
+git clone "https://github.com/juancv3d/Hacker_Tool_Automation.git"
+cd Hacker_Tool_Automation
+pip install -r requirements.txt
+```
 
-![Captura de pantalla 2021-05-19 190728](https://user-images.githubusercontent.com/70031233/118899986-8db61f80-b8d5-11eb-9a7c-aa7ce794fdfd.png)
 
-# network-scanner
-This code let you scan for MAC addresses in a network and give you the IP linked with that MAC address. You have to run this code with sudo privilege.
+# Tools
 
-![net](https://user-images.githubusercontent.com/70031233/118577661-726dd780-b750-11eb-8785-ccdf2e0c65a3.png)
-
-# arp-spoof
-This code allow to put yourself in the middle of the conversation between the victim and the router, using the ARP responses to fool the target device to think that we are the router and then fool the router to think that we are the target. this attack is commonly called Man in the Middle (MiTM)
-
-# packet-sniffer
-This code can monitor the netwrok traffic of a device, giving information of the HTTP request and the login information of a user. the code doesnt work right now with HTTPS.
+| Program                                 | Description                                                                                                 |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| [MAC Changer](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/mac_changer)         | Changes MAC Address to user input                                                                           |
+| [Network Scanner](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/network_scanner) | Scans network and discovers the IP and MAC address of all connected clients                                 |
+| [Arp Spoofer](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/arp_spoof)         | Runs an arp spoofing attack to redirect the flow of packets in the network, allowing user to intercept data |
+| [Packet Sniffer](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/packet_sniffer)   | Filters intercepted data and shows usernames, passwords, visited links ....etc                              |
+| [DNS Spoofer](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/spoofer)         | Redirects DNS requests, eg: redirects requests to from one domain to another.                               |
+| [File interceptor](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/spoofer)                        | Replaces intercepted files with any file we want.                                                           |
+| [Code injector](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/code_injector)                           | Injects code in intercepted HTML pages.                                                                     |
+| [Arpspoof detector](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/arp_spoof_detector)                       | Detects ARP spoofing attacks.                                                                               |
+| [Execute command payload](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/malware)                 | Executes a system command on the computer it gets executed on.                                              |
+| [Execute and report](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/malware)              | Executes a system command and reports result via email.                                                     |
+| [Download and execute payload](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/malware)            | Downloads a file and executes it on target system.                                                          |
+| [Download execute and report payload](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/malware)     | Downloads a file, executes it, and reports result by email.                                                 |
+| [Reverse backdoor](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/malware)                       | Gives remote control over the system it gets executed on, allows us to                                      |
+| [Keylogger](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/malware)                               | Records key-strikes and sends them to us by email.                                                          |
+| [Crawler](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/web_hacking/web_crawler)                                 | Discovers hidden paths on a target website.                                                                 |
+| [Spider](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/web_hacking/spider)                                  | Maps the whole target website and discovers all files, directories and links.                               |
+| [Guess login](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/web_hacking/guess_login)                             | Runs a wordlist attack to guess login information.                                                          |
+| [Extract forms](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/web_hacking/extract_forms)                   | Search for forms in a web to then extract them to submit data.                              |
+| [Vulnerability scanner](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/web_hacking/vulnerability_scanner)                   | Scans a target website for bugs and produces a report with all findings.                              |
