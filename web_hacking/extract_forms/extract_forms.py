@@ -12,6 +12,9 @@ def send_request(url):
 
 
 if __name__ == '__main__':
+    """
+    This script extracts the forms from the target website. 
+    """
     target_url = 'http://192.168.1.8/mutillidae/index.php?page=dns-lookup.php'
     response = send_request(target_url)
     post_data = {}

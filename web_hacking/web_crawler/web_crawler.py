@@ -10,12 +10,10 @@ common_directories = 'dir-wordlist.txt'
 
 def send_request(url):
     try:
-        response = requests.get(url)
+        response = requests.get('https://' + url, timeout=30)
         if response.status_code == 200:
-            print('[+] Discovered URL --> ' + url)
+            print('[+] Discovered URL -->  {}'.format(url))
     except requests.ConnectionError:
-        pass
-    except requests.exceptions.Timeout:
         pass
 
 
@@ -24,7 +22,7 @@ def search_subdomains(common_subdomains):
         with open(common_subdomains, 'r') as f:
             for line in f:
                 subdomain = line.strip()
-                test_url = f'https://{subdomain}.{target_url}'
+                test_url = f'{subdomain}.{target_url}'
                 send_request(test_url)
     except FileNotFoundError:
         print('[-] Can\'t open the file: ' + common_subdomains)
@@ -36,7 +34,7 @@ def search_directories(common_directories):
         with open(common_directories, 'r') as f:
             for line in f:
                 directory = line.strip()
-                test_url = f'https://{target_url}/{directory}'
+                test_url = f'{target_url}/{directory}'
                 send_request(test_url)
     except FileNotFoundError:
         print('[-] Can\'t open the file: ' + common_directories)
