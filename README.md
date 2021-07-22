@@ -1,18 +1,26 @@
 # Hacker-Tool-Automation
 This repo is for the tools created for my hacking path, contains previously used and proven python codes.
 
-# mac-changer
-This code lets you change the MAC address of a network device, using a range of IP addresses and the new MAC address that you want it as an input. You can use --help for more information about how to use the code.
+# Tasks
 
-![Captura de pantalla 2021-05-19 190728](https://user-images.githubusercontent.com/70031233/118899986-8db61f80-b8d5-11eb-9a7c-aa7ce794fdfd.png)
-
-# network-scanner
-This code let you scan for MAC addresses in a network and give you the IP linked with that MAC address. You have to run this code with sudo privilege.
-
-![net](https://user-images.githubusercontent.com/70031233/118577661-726dd780-b750-11eb-8785-ccdf2e0c65a3.png)
-
-# arp-spoof
-This code allow to put yourself in the middle of the conversation between the victim and the router, using the ARP responses to fool the target device to think that we are the router and then fool the router to think that we are the target. this attack is commonly called Man in the Middle (MiTM)
-
-# packet-sniffer
-This code can monitor the netwrok traffic of a device, giving information of the HTTP request and the login information of a user. the code doesnt work right now with HTTPS.
+| Program                                 | Description                                                                                                 |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| [MAC Changer](./mac_changer.py)         | Changes MAC Address to user input                                                                           |
+| [Network Scanner](./network_scanner.py) | Scans network and discovers the IP and MAC address of all connected clients                                 |
+| [Arp Spoofer](./arp_spoofer.py)         | Runs an arp spoofing attack to redirect the flow of packets in the network, allowing user to intercept data |
+| [Packet Sniffer](./packet_sniffer.py)   | Filters intercepted data and shows usernames, passwords, visited links ....etc                              |
+| [DNS Spoofer](./dns_spoofer.py)         | Redirects DNS requests, eg: redirects requests to from one domain to another.                               |
+| file_interceptor                        | replaces intercepted files with any file we want.                                                           |
+| code_injector                           | injects code in intercepted HTML pages.                                                                     |
+| arpspoof_detector                       | detects ARP spoofing attacks.                                                                               |
+| execute_command payload                 | executes a system command on the computer it gets executed on.                                              |
+| execute_and_report payload              | executes a system command and reports result via email.                                                     |
+| download_and_execute payload            | downloads a file and executes it on target system.                                                          |
+| download_execute_and_report payload     | downloads a file, executes it, and reports result by email.                                                 |
+| reverse_backdoor                        | gives remote control over the system it gets executed on, allows us to                                      |
+| keylogger                               | records key-strikes and sends them to us by email.                                                          |
+| crawler                                 | discovers hidden paths on a target website.                                                                 |
+| discover_subdomains                     | discovers subdomains on target website.                                                                     |
+| spider                                  | maps the whole target website and discovers all files, directories and links.                               |
+| guess_login                             | runs a wordlist attack to guess login information.                                                          |
+| vulnerability_scanner                   | scans a target website for weaknesses and produces a report with all findings.                              |
