@@ -5,7 +5,7 @@ This repo is for the tools created for my hacking path, contains previously used
 
 | Program                                 | Description                                                                                                 |
 | --------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| [MAC Changer](./tree/main/mac_changer.py)         | Changes MAC Address to user input                                                                           |
+| [MAC Changer](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/mac_changer)         | Changes MAC Address to user input                                                                           |
 | [Network Scanner](./network_scanner.py) | Scans network and discovers the IP and MAC address of all connected clients                                 |
 | [Arp Spoofer](./arp_spoofer.py)         | Runs an arp spoofing attack to redirect the flow of packets in the network, allowing user to intercept data |
 | [Packet Sniffer](./packet_sniffer.py)   | Filters intercepted data and shows usernames, passwords, visited links ....etc                              |
