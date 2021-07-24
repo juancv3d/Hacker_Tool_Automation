@@ -6,7 +6,9 @@ This repo is for the tools created for my hacking path, contains previously used
 ### Install: 
 ```bash
 git clone "https://github.com/juancv3d/Hacker_Tool_Automation.git"
+
 cd Hacker_Tool_Automation
+
 pip install -r requirements.txt
 ```
 
