@@ -1,7 +1,5 @@
 
 import requests
-import multiprocessing
-import concurrent.futures
 
 target_url = 'google.com'
 common_subdomains = 'short-wordlist.txt'
