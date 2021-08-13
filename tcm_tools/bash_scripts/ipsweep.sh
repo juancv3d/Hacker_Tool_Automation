@@ -11,3 +11,6 @@ for ip in `seq 1 254`; do
 ping -c 1  $1.$ip  | grep "64 bytes" | cut -d " " -f 4 | tr -d ":" & # The & is used to run the command mulitple times at the same time
 done
 fi
+# this is used to iterate through every ip found with the ipsweep
+# for ip in (cat ip.txt); do nmap $ip; done
+
