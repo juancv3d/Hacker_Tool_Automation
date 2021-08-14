@@ -1,7 +1,7 @@
 # Hacker-Tool-Automation 
 ![py](https://img.shields.io/badge/python-3.5%7C3.6%7C3.7-blue)
 
-This repo is for the tools created for my hacking path, contains previously used and proven python codes.
+This repo is for the tools created for my Ethical Hacking path, contains previously used and proven python codes.
 
 ### Install: 
 ```bash
