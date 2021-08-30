@@ -36,3 +36,4 @@ pip install -r requirements.txt
 | [Guess login](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/web_hacking/guess_login)                             | Runs a wordlist attack to guess login information.                                                          |
 | [Extract forms](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/web_hacking/extract_forms)                   | Search for forms in a web to then extract them to submit data.                              |
 | [Vulnerability scanner](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/web_hacking/vulnerability_scanner)                   | Scans a target website for bugs and produces a report with all findings.                              |
+| [Socket Scanner](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/tcm_tool)                   | Using multiproccessing we can search for open ports in a server                             |
