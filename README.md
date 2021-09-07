@@ -20,7 +20,7 @@ pip install -r requirements.txt
 | [MAC Changer](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/mac_changer)         | Changes MAC Address to user input                                                                           |
 | [Network Scanner](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/network_scanner) | Scans network and discovers the IP and MAC address of all connected clients                                 |
 | [Arp Spoofer](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/arp_spoof)         | Runs an arp spoofing attack to redirect the flow of packets in the network, allowing user to intercept data |
-| [Packet Sniffer](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/packet_sniffer)   | Filters intercepted data and shows usernames, passwords, visited links ....etc                              |
+| [Packet Sniffer](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/packet_sniffer)   | Filters intercepted data and shows usernames, passwords, visited links, etc.                              |
 | [DNS Spoofer](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/spoofer)         | Redirects DNS requests, eg: redirects requests to from one domain to another.                               |
 | [File interceptor](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/spoofer)                        | Replaces intercepted files with any file we want.                                                           |
 | [Code injector](https://github.com/juancv3d/Hacker_Tool_Automation/tree/main/code_injector)                           | Injects code in intercepted HTML pages.                                                                     |
